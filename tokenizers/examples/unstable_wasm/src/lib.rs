@@ -2,15 +2,12 @@ mod utils;
 use tokenizers::models::bpe::{Vocab, BPE};
 use tokenizers::Tokenizer;
 
-use wasm_bindgen::prelude::*;
-
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.
 #[cfg(feature = "wee_alloc")]
 #[global_allocator]
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
-#[wasm_bindgen]
 pub fn tokenize(string: &str) -> Vec<u32> {
     let vocab: Vocab = vec![
         ("a".to_string(), 0),
